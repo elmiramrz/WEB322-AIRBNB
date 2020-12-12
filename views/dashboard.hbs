@@ -1,3 +1,9 @@
+<!--
+Student Name: Elmira Mirza
+Student Id:130828197
+email:emirza2@myseneca.ca
+WEB322NFF
+-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,8 +34,32 @@
   <h4>email: {{user.email}}</h4>
   <a href="/logout">Logout</a>
 
-
-  
+<form  action="/addroom" method="POST" enctype="body-parser/form-data">
+    <table  >
+      <tbody>
+       
+        
+          <td><input style="width:100%" id="r_Title" required type="text"  placeholder="Room Title" /></td></tr>
+            <tr>
+              
+              <td><input style="width:100%" id="r_price"  required type="text" placeholder="Price" /></td>
+            </tr>
+            <tr>
+              
+                <td><input style="width:100%" id="r_desc" required type="text"  placeholder="Description/Detail" /></td>
+              </tr>
+            <tr>
+              <td><input style="width:100%" id="r_loc" required type="text" placeholder="Location"/></td>
+            </tr>
+           <tr>
+              <td><input style="width:100%" id="r_image" required type="file" placeholder="Image"/></td>
+            </tr>
+            <tr>
+              <td ><button style="background-color: red;width:100%;border-radius:.3em ;" type="submit">Save Room</button> </td>
+            </tr>
+      </tbody>
+    </table>
+  </form>
 </div>
 
 <div id="dFooter">

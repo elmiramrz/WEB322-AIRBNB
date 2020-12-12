@@ -1,3 +1,10 @@
+/*
+Student Name: Elmira Mirza
+Student Id:130828197
+email:emirza2@myseneca.ca
+WEB322NFF
+*/ 
+
 const HTTP_PORT = process.env.PORT || 8080;
 const HTTPS_PORT = 4433;
 const express = require("express");
@@ -15,6 +22,7 @@ const WEEK10ASSETS = "./views/";
 const webAir = "";
 const SSL_KEY_FILE =  "server.key";
 const SSL_CRT_FILE =  "server.crt";
+const multer = require("multer");
 
 app.use(express.static(__dirname + '/public'));
 
@@ -25,10 +33,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json()) 
 
 app.use(express.urlencoded({ extended: true })) 
-
-app.engine(".hbs", exphbs({ extname: ".hbs"}));
-
-
 app.set("view engine", ".hbs");
 
 
@@ -74,7 +78,6 @@ function ensureLogin(req, res, next) {
 
 // Register handlerbars as the rendering engine for views
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
-app.set("view engine", ".hbs");
 
 // Setup the static folder that static resources can load from
 // like images, css files, etc.
@@ -236,15 +239,7 @@ app.post("/addUser", (req, res) => {
       });    
   }
   console.log('msg:' + msg);
-
-
-
-
-  // crypto password
-
-
   console.log (User);
-
 
   // if do not exist in database, create new user
   if (dataValid) {
@@ -271,31 +266,71 @@ app.post("/addUser", (req, res) => {
 
 });
 
-
-
-function checkSession() {
-  // check session
-
-  // return result
-};
-app.get("/home", (req, res) => {
-  // check session
-  var session = checkSession();
-  if (session) {
-      // present user name
-  } else {
-      // hide user label
-  }
   
 
 var dataValid = true;
 
-res.render('home', {
+app.render('HomePage', {
   data: dataValid,
   layout: false // do not use the default Layout (main.hbs)
 });
+//image upload admin
+const storage = multer.diskStorage({
+  destination: "./public/photos/",
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
 });
+const upload = multer({ storage: storage });
+
+app.use(express.static("./public/"));
+app.get("/", (req, res) => {
+  // send the html view with our form to the client
+  res.sendFile(path.join(__dirname, "/views/dashboard.hbs"));
+});
+app.post("/register-user", upload.single("photo"), (req, res) => {
+  const formData = req.body;
+  const formFile = req.file;
+
+  const dataReceived = "Your submission was received:<br/><br/>" +
+    "Your form data was:<br/>" + JSON.stringify(formData) + "<br/><br/>" +
+    "Your File data was:<br/>" + JSON.stringify(formFile) +
+    "<br/><p>This is the image you sent:<br/><img src='/photos/" + formFile.filename + "'/>";
+  res.send(dataReceived);
+});
+//end image upload admin
+//add room admin
+const Room = sequelize.define("Room", {
+  r_Id: {type:Sequelize.STRING,
+    unique:true
   
+  
+  },  
+  rtitle: Sequelize.STRING, 
+  rprice: Sequelize.STRING, 
+  rdesc: Sequelize.STRING, 
+  rloc: Sequelize.STRING, 
+  rimg: Sequelize.STRING,
+});
+app.post("/addroom", (req, res) => {
+  Room.create({ 
+    userID: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+  },    
+  rtitle:req.body.rtitle,
+  rprice:req.body.rprice,
+  rdesc:req.body.rdesc,
+  rloc: req.body.rloc,
+  rimg: req.body.rimg, 
+    
+  })
+
+});
+//end add room admin
+ 
+
 app.get("/Registration", (req, res) => {
   // check session
   var session = checkSession();
