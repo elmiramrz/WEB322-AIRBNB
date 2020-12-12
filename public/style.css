@@ -1,0 +1,242 @@
+
+
+
+
+/* for form*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+* {
+  box-sizing: border-box;
+}
+
+/*body {
+  padding: 1em;
+  font-family: "Open Sans", sans-serif;
+}*/
+
+form {
+  /* apply some space around our form, and add a border */
+  width:100%;
+  height: 99%;
+  padding: 2em;
+  border: none;
+border-radius: 2em;
+ 
+
+  /* set a max-width, so it doesn't expand with the window, using the rest as margin */
+
+
+
+  /* use a grid layout for items in the form: 2 columns, with most of the width in the second. */
+
+  /* align all items in the grid cells center, and add 20px of space between the rows/columns */
+  align-items: center;
+ 
+}
+
+form label {
+  /* Use a better font and text size for our labels, to make them easy to read */
+  font-family: "Raleway", sans-serif;
+  font-size:.9em;
+}
+
+/**
+ * Style the input controls (and textarea) so they are full width in their cells,
+ * use a larger font-size, have a light gray border, and slightly rounded corners.
+ */
+input,
+textarea {
+  width: 100%;
+  padding: 0.3em;
+  font-size: .9em;
+  border: 1px solid rgb(206, 212, 218);
+  border-radius: 0.25em;
+}
+
+/**
+ * When the input controls (and textarea) have the focus, change the border
+ * colour to light blue so it's clear where you're entering text.
+ */
+input:focus,
+textarea:focus {
+  outline: 3px solid lightskyblue;
+}
+
+/**
+ * For our two "submit" style buttons, make them stand out a bit more
+ */
+input[type="submit"],
+input[type="reset"] {
+  /*width: 150px;*/
+  background-color: rgb(0, 123, 255);
+  color: white;
+}
+
+/**
+ * Also do something when you hover or focus them
+ */
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus {
+  background-color: #0069d9;
+}
+
+/**
+ * Stretch our texteara from the start of the grid to the end.  NOTE: the
+ * grid has 2 columns, but the numbers here are for the outside lines of each
+ */
+textarea {
+  grid-column: 1 / 3;
+}
+
+/**
+ * Move the buttons to the right side of the right column
+ */
+ #dGen{
+  min-width:1024px;
+  height: 1600px;
+  background-color:#c5d2ec;
+}
+
+#iLogo{
+  width:10%;
+  height: 100%;
+  text-align: left;
+}
+#dPic{width:100%;
+  height:40% ;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+
+background-image:url(images/stephan-bechert-yFV39g6AZ5o-unsplash.jpg)
+}
+#dPicc{width:100%;
+  height:40% ;
+background-size: 100% 100%;
+background-repeat: no-repeat;
+}
+#dFirst{ border-radius:1em;width: 70%;height:100%;margin-right: 30pt;margin-left: 40pt;}
+#Firstrow,#Secondrow{width: 99%; height:100% ; display:flex; padding: 15pt;margin-top: 6%; }
+#dSecond{ width: 70%;border-radius:1em;height:100%;margin-right: 30pt;}
+#dThird{ border-radius:1em;width: 70%;height:100%;}
+#dFourth{ width: 70%;border-radius:1em;height:100%;margin-right: 30pt;margin-left: 40pt;}
+#dFifth{ width: 70%;height:100%;border-radius:1em;margin-right: 30pt;}
+#dSixth{ width: 70%;height:100%;border-radius:1em;}
+ul{
+  padding: 0;
+  list-style: none;
+  float: right;
+  }
+ul li{
+  display: inline-block;
+  position: relative;
+  line-height: 21px;
+  text-align: left;
+}
+ul li a{
+  display: block;
+  padding: 8px 25px;}
+
+#dHeader{width:100%;
+  height: 20%;
+  /*background-color: orange;*/
+}
+#dSearch{
+  width:100%;
+height: 75%;
+margin-top: 7%;
+}
+#dForm{
+  width:40%;
+  height: 98%;
+  float: left;
+  background-color: white;
+  margin-top: 1%;
+  border-radius: .2em;
+}
+#dPromo{
+  width:100%;
+height:10% ;
+
+
+}
+#iPro{
+  float: right;
+  border-radius: 1em 1em 1em 1em;
+}
+#dInform{
+  width:100%;
+height:30% ;
+padding-top: 2%;
+
+}
+#iHoll{
+  float: left;
+  border-radius: 1em 1em 1em 1em;
+
+}
+#dVideo{
+  width:49%;
+  height:100% ;
+  border-radius: .3em;
+  /*margin-top: -33%;*/
+  float: left;
+}
+#dImg{
+  width:50%;
+  height:100% ;
+  background-size:cover;
+  float: right;
+background-repeat: no-repeat;
+/*margin-top: -33%;*/
+font-size:large;
+color: blanchedalmond;
+border-radius: .3em;
+  background-image: url(images/cris-dinoto-eTMLVsYBM8E-unsplash.jpg);
+}
+#dFooter{
+  width:100%;
+
+height: 3%;
+
+}
+#dFooter ul{
+margin-right: -5%;
+  list-style: none;
+  float: right;
+  }
+  #dFooter ul a{
+padding: 0%;
+  }
+  .grid_foterinfo{
+    float:left;
+    width: 40%;
+    display: flex;
+    margin-left: -10%;
+}
+.onehalf{
+  width: 49%;
+  height: 100%;
+
+    position: relative;
+}
+.linklist li{display: block;}
+.linklist li a{  list-style-type: none; 
+  text-decoration: none;color:black;}
+.onehalf{
+  width: 50%;
+  height: 100%;
+
+    position: relative;
+}
+
+a{
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+ 
+
+
